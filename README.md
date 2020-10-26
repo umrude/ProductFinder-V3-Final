@@ -4,21 +4,38 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the folder `/build`, open the file `index.html` in your browser.
 
-## To Run In Production/Build/Compiled Version
-
-In your terminal, run `npm i` or `npm install`. You will need npm version 5.2+ and Node.js 0.10 or above. After installing, run `node server.js` and open [http://localhost:8080](http://localhost:8080)
-
-### **`npm run build ` is used for final deployment in production. All development must be in `/src`.**
-
-This serves files from `/build`. Do not edit code within here. If you need to make changes, make your changes in the `/src` directory and then run `npm run build` again.
+This runs a static version of your webapp with no server needed.
 
 ## To Run In Development
 
 In your terminal, run `npm i` or `npm install`. You will need npm version 5.2+ and Node.js 0.10 or above. After installing, run `npm start` and open [http://localhost:3000](http://localhost:3000)
 
-Webpack will handle the rest (You can see this code in the folder `/scripts`).
+Webpack will handle the rest.
 
-When making changes, the page will reload and save. CSS/SASS/SCSS all gets compiled automatically by `create-react-app`.
+If editing, the page will reload with your changes so there's no need to restart your server. CSS/SASS/SCSS all gets compiled automatically by `create-react-app` as well, though you may have to refresh the page.
+
+## Make a new build
+
+Run `npm run build`
+
+Builds the app for production to the `build` folder.
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.
+
+In your `package.json`, make sure that `"homepage": "./"`, so that the static `.css` and static `.js` files point to the right place
+
+## Run In Production/Build/Compiled Version on a local server
+
+In your terminal, run `npm i` or `npm install`. You will need npm version 5.2+ and Node.js 0.10 or above. After installing, run `node server.js` and open [http://localhost:8080](http://localhost:8080)
+
+This will start an Express server that serves files from `/build`.
+
+Alternatively, you can run the commands shown in the terminal after running `npm run build ` (Note: This will create a new build of your web app)
+
+**`npm run build ` is used for final deployment in production. All development must be in `/src`.**
+
+Do not edit code within the `/build` file, it will get overwritten when `npm run build` is run again. If you need to make changes, make your changes in the `/src` directory and then run `npm run build` again for production testing.
 
 ## Available Scripts
 
@@ -30,12 +47,6 @@ Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
