@@ -6,7 +6,7 @@ import { mapSelection } from "./helpers/mapSelection";
 import axios from "axios";
 import ControlButtons from "./components/ControlButtons";
 import renderObject from "./components/RenderObject";
-import { start } from "./dataPaths/root";
+// import { start } from "./dataPaths/root";
 
 const App = () => {
   const [depthLevel, setDepthLevel] = useState(0); //How far in nesting they've gone
