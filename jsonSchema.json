@@ -1,0 +1,163 @@
+{
+  "type": "object",
+  "required": ["id", "type", "styleClass"],
+  "properties": {
+    "question": {
+      "type": "string",
+      "title": "Question"
+    },
+    "id": {
+      "type": "string",
+      "title": "Unique ID"
+    },
+    "subheading": {
+      "type": "string",
+      "title": "Subheading"
+    },
+    "type": {
+      "type": "string",
+      "title": "Component Type",
+      "description": "Type of Component",
+      "enum": ["default", "end", "default-img"]
+    },
+    "styleClass": {
+      "type": "string",
+      "title": "Component Style",
+      "description": "Style of Component",
+      "enum": [
+        "product",
+        "default",
+        "default-img",
+        "default two-button-context",
+        "default yesno",
+        "default start",
+        "default single"
+      ]
+    },
+    "boolImg": {
+      "type": "boolean",
+      "title": "Do You need an image in the component?",
+      "default": false
+    },
+    "sideBarContext": {
+      "type": "boolean",
+      "title": "Does this item have a sidebar?",
+      "default": false
+    },
+    "children": {
+      "type": "array",
+      "title": "Children",
+      "items": {
+        "type": "object",
+        "$ref": "#"
+      }
+    }
+  },
+  "dependencies": {
+    "sideBarContext": {
+      "oneOf": [
+        {
+          "properties": {
+            "sideBarContext": {
+              "const": false
+            }
+          }
+        },
+        {
+          "properties": {
+            "sideBarContext": {
+              "const": true
+            },
+            "sideBar": {
+              "type": "array",
+              "title": "Side Bar",
+              "description": "Side Bar Text",
+              "items": {
+                "type": "string",
+                "default": "Each line of text should be in it's own text box"
+              }
+            },
+            "sidebarLink": {
+              "type": "string",
+              "title": "Sidebar Link",
+              "description": "Link to a learn more page in sidebar"
+            },
+            "sidebarImg": {
+              "type": "string",
+              "title": "Sidebar Image",
+              "description": "Link to a image in sidebar"
+            }
+          }
+        }
+      ]
+    },
+    "boolImg": {
+      "oneOf": [
+        {
+          "properties": {
+            "boolImg": {
+              "const": false
+            }
+          }
+        },
+        {
+          "properties": {
+            "boolImg": {
+              "const": true
+            },
+            "contextImg": {
+              "type": "string",
+              "title": "Image Component",
+              "description": "Link to image for question context (Optional)"
+            },
+            "contextImgAlt": {
+              "type": "string",
+              "title": "Image Alt Text",
+              "description": "Alt Text for Image (Optional)"
+            }
+          }
+        }
+      ]
+    },
+    "type": {
+      "oneOf": [
+        {
+          "properties": {
+            "type": {
+              "enum": ["default"]
+            }
+          }
+        },
+        {
+          "properties": {
+            "type": {
+              "enum": ["default-img"]
+            }
+          }
+        },
+        {
+          "properties": {
+            "type": {
+              "enum": ["end"]
+            },
+            "img": {
+              "type": "string",
+              "title": "product img",
+              "description": "Link to product image in sidebar"
+            },
+            "productName": {
+              "type": "string",
+              "title": "Product Name",
+              "description": "Name of End Product"
+            },
+            "link": {
+              "type": "string",
+              "title": "Product Link",
+              "description": "Link to product or end of flow"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

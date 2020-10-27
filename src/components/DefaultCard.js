@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/App.scss";
-import { Button, Card } from "@material-ui/core";
+import { Button, Card, CardMedia } from "@material-ui/core";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 
@@ -14,6 +14,16 @@ function DefaultCard(props) {
         <Typography variant="inherit" component="p" className={"subheading"}>
           {props.subheading}
         </Typography>
+        {props.contextImg ? (
+          <CardMedia
+            component="img"
+            alt={props.contextImgAlt}
+            image={props.contextImg}
+            title="Sidebar Image"
+            className="imageContext"
+          />
+        ) : null}
+
         <div className="buttons">
           {props.propsChildren.map((item, indexC) => {
             return (

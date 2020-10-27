@@ -109,12 +109,23 @@
   .subheading {
     margin: 20px 0;
   }
+  .imageContext {
+    max-width: 60%;
+    margin: 0 auto;
+  }
+  .MuiCardContent-root {
+    padding: 25px !important;
+  }
 }
 
 //default card but has sidebar
 .hasSidebar {
   display: flex;
   justify-content: space-between;
+  .sidebarImg {
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
   @include lt-md {
     flex-wrap: wrap;
   }
@@ -132,6 +143,7 @@
       margin: 0 auto;
       margin-bottom: 20px;
     }
+
     & .MuiPaper-root {
       height: 100%;
       padding: 4.5%;
@@ -144,8 +156,12 @@
         padding-bottom: 10px;
         font-weight: 500;
       }
+
+      .sidebarImg {
+        max-height: 80px !important;
+      }
       @include lt-md {
-        padding-top: 10px;
+        // padding-top: 10px;
       }
     }
     .buttons .buttons-context button {

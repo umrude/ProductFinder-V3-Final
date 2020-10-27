@@ -1,0 +1,11 @@
+{
+  "order": [
+    "question",
+    "id",
+    "subheading",
+    "type",
+    "styleClass",
+    "*",
+    "children"
+  ]
+}

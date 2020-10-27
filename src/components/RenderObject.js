@@ -93,6 +93,8 @@ export default function RenderObject(
         back={back}
         setDepthLevel={setDepthLevel}
         sidebar={props["sidebar"]}
+        contextImg={props["contextImg"]}
+        contextImgAlt={props["contextImgAlt"]}
       ></DefaultCard>
     );
   } else {
@@ -110,9 +112,13 @@ export default function RenderObject(
         back={back}
         setDepthLevel={setDepthLevel}
         sidebar={props["sidebar"]}
+        contextImg={props["contextImg"]}
+        contextImgAlt={props["contextImgAlt"]}
       ></DefaultCard>
     );
   }
+  console.log(props);
+
   return (
     <div className={wrapperClass}>
       {props["sidebar"] ? (
@@ -120,6 +126,8 @@ export default function RenderObject(
           <Sidebar
             sidebar={props["sidebar"]}
             sidebarContext={props["sidebarContext"]}
+            sidebarLink={props["sidebarLink"]}
+            sidebarImg={props["sidebarImg"]}
           ></Sidebar>
         </div>
       ) : null}
